@@ -1,0 +1,29 @@
+[
+  { 
+    "name": "Pumpkin Spice Latte", 
+    "price": 120.00, 
+    "description": "Espresso with steamed milk, pumpkin spice syrup, and whipped cream.", 
+    "isNew": true 
+  },
+  { 
+    "name": "Latte", 
+    "price": 90.00, 
+    "description": "Rich espresso combined with steamed milk and a thin layer of foam.", 
+    "isNew": false,
+    "video": "latte.mp4"
+  },
+  { 
+    "name": "Avocado Toast", 
+    "price": 129.00, 
+    "description": "Fresh sourdough topped with mashed avocado and poached eggs.", 
+    "isNew": false, 
+    "video": "avocado.mp4"
+  },
+  { 
+    "name": "Strawberry Matcha Latte", 
+    "price": 149.00, 
+    "description": "Ceremonial grade green tea layered over fresh strawberry puree.", 
+    "isNew": false,
+    "video": "matcha.mp4"
+  }
+]

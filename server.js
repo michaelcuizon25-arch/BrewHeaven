@@ -6,11 +6,10 @@ const PORT = 5000;
 
 app.use(express.json());
 
-// Serve static assets from 'public'
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static assets directly from root
+app.use(express.static(__dirname));
 
 // --- API Endpoints ---
-
 app.get('/api/menu', (req, res) => {
     res.json([
         { 
@@ -23,7 +22,7 @@ app.get('/api/menu', (req, res) => {
             name: "Latte", 
             price: 90.00, 
             description: "Rich espresso combined with steamed milk and a thin layer of foam.", 
-            isNew: false ,
+            isNew: false,
             video: "latte.mp4"
         },
         { 
@@ -37,9 +36,8 @@ app.get('/api/menu', (req, res) => {
             name: "Strawberry Matcha Latte", 
             price: 149.00, 
             description: "Ceremonial grade green tea layered over fresh strawberry puree.", 
-            isNew: false ,
+            isNew: false,
             video: "matcha.mp4"
-
         }
     ]);
 });
@@ -58,9 +56,9 @@ app.post('/api/contact', (req, res) => {
     res.json({ status: "Success! Your message was received by our server." });
 });
 
-// --- SPA Fallback Route (Serves index.html) ---
+// --- SPA Fallback Route (Serves index.html from root) ---
 app.use((req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {
