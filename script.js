@@ -20,7 +20,7 @@ async function loadMenu() {
             "price": 150.00, 
             "description": "Espresso with steamed milk, pumpkin spice syrup, and whipped cream.", 
             "isNew": true,
-            "image": "pumpkin.jpg"
+            "image": "pumpkin.png"
         },
         { 
             "name": "Latte", 

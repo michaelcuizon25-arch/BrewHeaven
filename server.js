@@ -17,7 +17,7 @@ app.get('/api/menu', (req, res) => {
             price: 150.00, 
             description: "Espresso with steamed milk, pumpkin spice syrup, and whipped cream.", 
             isNew: true,
-            video: "pumpkin.jpg"
+            video: "pumpkin.png"
         },
         { 
             name: "Latte", 
