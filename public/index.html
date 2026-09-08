@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew Heaven</title>
+    <!-- Font Awesome for Social & Email Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">BREW HEAVEN</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="page-section">
+            <div class="bg-glow glow-1"></div>
+            <div class="bg-glow glow-2"></div>
+            <div class="hero-card glass-card">
+                <div class="hero-badge">✨ Premium Specialty Coffee</div>
+                <h1>Welcome to <span class="brand-highlight">Brew Heaven</span></h1>
+                <p class="hero-tagline">Where every cup brings warmth, comfort, and a little piece of heaven.</p>
+                <div class="hero-actions">
+                    <a href="#menu" class="btn-primary">Explore Menu</a>
+                    <a href="#about" class="btn-secondary">Our Story</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="page-section">
+            <div class="bg-glow glow-3"></div>
+            <div class="bg-glow glow-4"></div>
+            <div class="menu-content glass-card">
+                <h2>Our <span class="brand-highlight">Signature Menu</span></h2>
+                <div id="menu-container">Loading menu...</div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+<section id="about" class="page-section">
+    <div class="bg-glow glow-5"></div>
+    <div class="bg-glow glow-6"></div>
+    <div class="about-card glass-card">
+        <div class="hero-badge">✨ Our Story</div>
+        <h2>About <span class="brand-highlight">Brew Heaven</span></h2>
+        
+        <p class="about-text">
+            Crafted for warm conversations and quiet <em>pahingahan</em>. We serve artisanal, locally sourced coffee brewed to bring you a little piece of comfort in every cup.
+        </p>
+
+        <!-- Icon Highlights Grid -->
+        <div class="about-highlights">
+            <div class="highlight-item">
+                <i class="fa-solid fa-leaf"></i>
+                <span>100% Organic</span>
+            </div>
+            <div class="highlight-item">
+                <i class="fa-solid fa-recycle"></i>
+                <span>Zero Plastic</span>
+            </div>
+            <div class="highlight-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Fast Delivery</span>
+            </div>
+        </div>
+
+        <!-- Conversion Call-to-Action -->
+        <div class="about-actions">
+            <a href="#menu" class="btn-primary">Explore Our Brews</a>
+        </div>
+    </div>
+</section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="page-section">
+            <div class="bg-glow glow-1"></div>
+            <div class="bg-glow glow-4"></div>
+            <div class="contact-card glass-card">
+                <h2>Get in <span class="brand-highlight">Touch</span></h2>
+                <p class="contact-sub">Have a question or feedback? We'd love to hear from you.</p>
+                
+                <!-- Official Contact Email Badge -->
+                <div class="contact-info">
+                    <a href="mailto:brewheaven@ccc.edu.ph" class="contact-email">
+                        <i class="fa-solid fa-envelope"></i> brewheaven@ccc.edu.ph
+                    </a>
+                </div>
+
+                <form id="contact-form">
+                    <input type="email" id="email" placeholder="Your Email (e.g., you@ccc.edu.ph)" required />
+                    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+                <p id="contact-response"></p>
+
+                <!-- Social Media Icon Links -->
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="X" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
