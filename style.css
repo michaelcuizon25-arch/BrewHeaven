@@ -1,4 +1,4 @@
-/* Base & Smooth Scrolling */
+/* Base & Global Safeguards */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 70px;
@@ -10,6 +10,12 @@ body {
     padding: 0;
     color: #fff;
     background-color: #0d0d10;
+}
+
+/* Global Media Reset - Prevents image/video overflow */
+img, video {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Header & Navbar */
@@ -301,6 +307,18 @@ header {
 .menu-item p { margin: 0; color: #ddd; }
 .menu-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
 
+/* Menu Images Guard */
+#menu-container img,
+.menu-item img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 0.8rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .inline-video-container {
     max-height: 0;
     overflow: hidden;
@@ -436,54 +454,6 @@ header {
     box-shadow: 0 8px 20px rgba(255, 152, 0, 0.35);
 }
 
-/* Keyframe Animations */
-@keyframes floatGlow1 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(80px, 50px) scale(1.25); }
-}
-
-@keyframes floatGlow2 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-70px, -40px) scale(1.2); }
-}
-
-@keyframes floatHero {
-    0%, 100% { transform: translateY(0px) rotateX(0deg); }
-    50% { transform: translateY(-8px) rotateX(1.5deg); }
-}
-
-@keyframes floatContact3D {
-    0%, 100% { transform: translateY(0px) rotateX(2deg) rotateY(-2deg); }
-    50% { transform: translateY(-12px) rotateX(-2deg) rotateY(2deg); }
-}
-
-/* Mobile Responsiveness & Overflow Protection */
-@media (max-width: 600px) {
-    .page-section {
-        padding: 4.5rem 1rem 3rem 1rem;
-        min-height: auto;
-    }
-
-    .glass-card {
-        padding: 2rem 1.2rem;
-        width: 95%;
-    }
-    
-    .glass-card h2 {
-        font-size: 1.8rem;
-    }
-
-    #contact {
-        padding-top: 5rem;
-        padding-bottom: 4rem;
-    }
-
-    .social-links a {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-    }
-}
 /* Contact Email Accordion & Expandable Image */
 .contact-email-wrapper {
     margin-bottom: 1.5rem;
@@ -551,4 +521,53 @@ header {
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Keyframe Animations */
+@keyframes floatGlow1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(80px, 50px) scale(1.25); }
+}
+
+@keyframes floatGlow2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-70px, -40px) scale(1.2); }
+}
+
+@keyframes floatHero {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-8px) rotateX(1.5deg); }
+}
+
+@keyframes floatContact3D {
+    0%, 100% { transform: translateY(0px) rotateX(2deg) rotateY(-2deg); }
+    50% { transform: translateY(-12px) rotateX(-2deg) rotateY(2deg); }
+}
+
+/* Mobile Responsiveness & Overflow Protection */
+@media (max-width: 600px) {
+    .page-section {
+        padding: 4.5rem 1rem 3rem 1rem;
+        min-height: auto;
+    }
+
+    .glass-card {
+        padding: 2rem 1.2rem;
+        width: 95%;
+    }
+    
+    .glass-card h2 {
+        font-size: 1.8rem;
+    }
+
+    #contact {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
 }
