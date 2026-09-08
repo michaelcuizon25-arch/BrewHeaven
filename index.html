@@ -6,7 +6,7 @@
     <title>Brew Heaven</title>
     <!-- Font Awesome for Social & Email Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -49,69 +49,81 @@
         </section>
 
         <!-- About Section -->
-<section id="about" class="page-section">
-    <div class="bg-glow glow-5"></div>
-    <div class="bg-glow glow-6"></div>
-    <div class="about-card glass-card">
-        <div class="hero-badge">✨ Our Story</div>
-        <h2>About <span class="brand-highlight">Brew Heaven</span></h2>
-        
-        <p class="about-text">
-            Crafted for warm conversations and quiet <em>pahingahan</em>. We serve artisanal, locally sourced coffee brewed to bring you a little piece of comfort in every cup.
-        </p>
+        <section id="about" class="page-section">
+            <div class="bg-glow glow-5"></div>
+            <div class="bg-glow glow-6"></div>
+            <div class="about-card glass-card">
+                <div class="hero-badge">✨ Our Story</div>
+                <h2>About <span class="brand-highlight">Brew Heaven</span></h2>
+                
+                <p class="about-text">
+                    Crafted for warm conversations and quiet <em>pahingahan</em>. We serve artisanal, locally sourced coffee brewed to bring you a little piece of comfort in every cup.
+                </p>
 
-        <!-- Icon Highlights Grid -->
-        <div class="about-highlights">
-            <div class="highlight-item">
-                <i class="fa-solid fa-leaf"></i>
-                <span>100% Organic</span>
-            </div>
-            <div class="highlight-item">
-                <i class="fa-solid fa-recycle"></i>
-                <span>Zero Plastic</span>
-            </div>
-            <div class="highlight-item">
-                <i class="fa-solid fa-truck-fast"></i>
-                <span>Fast Delivery</span>
-            </div>
-        </div>
+                <!-- Icon Highlights Grid -->
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>100% Organic</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-recycle"></i>
+                        <span>Zero Plastic</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Fast Delivery</span>
+                    </div>
+                </div>
 
-        <!-- Conversion Call-to-Action -->
-        <div class="about-actions">
-            <a href="#menu" class="btn-primary">Explore Our Brews</a>
-        </div>
-    </div>
-</section>
+                <!-- Conversion Call-to-Action -->
+                <div class="about-actions">
+                    <a href="#menu" class="btn-primary">Explore Our Brews</a>
+                </div>
+            </div>
+        </section>
 
         <!-- Contact Section -->
-       <section id="contact" class="page-section">
-  <div class="contact-card">
-    <h2>Get in <span>Touch</span></h2>
-    <p>Have a question or feedback? We'd love to hear from you.</p>
+        <section id="contact" class="page-section">
+            <!-- Glowing Background Accent Orbs -->
+            <div class="bg-glow glow-5"></div>
+            <div class="bg-glow glow-6"></div>
 
-    <div class="contact-email">
-      <i class="fas fa-envelope"></i> brewheaven@ccc.edu.ph
-    </div>
+            <!-- Glassmorphic Card Container -->
+            <div class="glass-card contact-card">
+                <h2>Get in <span class="brand-highlight">Touch</span></h2>
+                <p class="contact-sub">Have a question or feedback? We'd love to hear from you.</p>
 
-    <form id="contact-form">
-      <input type="email" placeholder="Your Email (e.g., you@ccc.edu.ph)" required />
-      <textarea placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit" class="send-btn">Send Message</button>
-    </form>
-    
-    <p id="contact-response"></p>
+                <!-- Expandable Email & Team Image -->
+                <div class="contact-email-wrapper">
+                    <button type="button" class="contact-email-btn" id="email-toggle-btn" aria-expanded="false">
+                        <i class="fas fa-envelope"></i> brewheaven@ccc.edu.ph
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    
+                    <div class="contact-image-container" id="email-image-container">
+                        <img src="CCE.jpg" alt="Brew Heaven Team" class="contact-image" />
+                    </div>
+                </div>
 
-    <!-- Social Links with Direct Instagram URL -->
-    <div class="social-links">
-      <a href="https://www.instagram.com/ooonyek?stkn=MXJqbTh3MzR3bTBveA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
-    </div>
-  </div>
-</section>
+                <form id="contact-form">
+                    <input type="email" placeholder="Your Email (e.g., you@ccc.edu.ph)" required />
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit" class="btn-primary send-btn">Send Message</button>
+                </form>
+                <p id="contact-response"></p>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/ooonyek?stkn=MXJqbTh3MzR3bTBveA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>

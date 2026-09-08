@@ -1,4 +1,4 @@
-/* Smooth scrolling */
+/* Base & Smooth Scrolling */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 70px;
@@ -58,7 +58,7 @@ header {
     color: #ff9800;
 }
 
-/* Page Layout */
+/* Page Section Layout */
 .page-section {
     position: relative;
     min-height: 100vh;
@@ -74,7 +74,7 @@ header {
     border: none;
 }
 
-/* Background Gradients */
+/* Background Images & Gradients */
 #home {
     background: linear-gradient(to bottom, rgba(13, 13, 16, 0.4) 0%, rgba(0, 0, 0, 0.65) 25%, rgba(0, 0, 0, 0.65) 75%, #0d0d10 100%), 
                 url('home-bg.jpg') no-repeat center center / cover;
@@ -85,15 +85,15 @@ header {
                 url('popular-bg.jpg') no-repeat center center / cover;
 }
 
-/* About Section Background */
 #about {
-    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('about.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('about.jpg') no-repeat center center / cover;
     width: 100%;
     min-height: 100vh;
 }
 
 #contact {
     background: linear-gradient(to bottom, #0d0d10 0%, rgba(20, 16, 14, 0.85) 25%, rgba(20, 16, 14, 0.85) 75%, #0d0d10 100%);
+    perspective: 1000px;
 }
 
 /* Ambient Glow Orbs */
@@ -115,17 +115,7 @@ header {
 .glow-5 { background: #f57c00; top: 10%; left: 20%; animation: floatGlow1 8s ease-in-out infinite alternate; }
 .glow-6 { background: #d84315; bottom: 10%; right: 20%; animation: floatGlow2 10s ease-in-out infinite alternate; }
 
-@keyframes floatGlow1 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(80px, 50px) scale(1.25); }
-}
-
-@keyframes floatGlow2 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-70px, -40px) scale(1.2); }
-}
-
-/* Glass Card Container */
+/* Glass Cards (Hero & General) */
 .glass-card {
     position: relative;
     z-index: 1;
@@ -144,14 +134,17 @@ header {
     text-align: center;
 }
 
-@keyframes floatHero {
-    0%, 100% { transform: translateY(0px) rotateX(0deg); }
-    50% { transform: translateY(-8px) rotateX(1.5deg); }
+/* 3D Contact Card Specifics */
+.contact-card {
+    max-width: 520px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 152, 0, 0.25);
+    animation: floatContact3D 6s ease-in-out infinite;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 }
 
-/* Typography & Headers */
+/* Typography & Badges */
 .glass-card h1 { font-size: 3.2rem; margin: 0 0 1rem 0; line-height: 1.2; font-weight: 800; }
-.glass-card h2 { font-size: 2.2rem; margin-top: 0; margin-bottom: 1.5rem; color: #fff; }
+.glass-card h2 { font-size: 2.2rem; margin-top: 0; margin-bottom: 1.5rem; color: #fff; transform: translateZ(35px); }
 
 .brand-highlight {
     background: linear-gradient(135deg, #ff9800, #ff5722);
@@ -160,6 +153,7 @@ header {
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 4px 12px rgba(255, 152, 0, 0.4));
 }
+
 .hero-badge {
     display: inline-block;
     background: rgba(255, 152, 0, 0.2);
@@ -190,7 +184,7 @@ header {
     flex-wrap: wrap;
 }
 
-.btn-primary {
+.btn-primary, .send-btn {
     background: linear-gradient(135deg, #ff9800, #e68a00);
     color: #121212;
     padding: 0.9rem 2.2rem;
@@ -201,11 +195,12 @@ header {
     border: none;
     cursor: pointer;
     box-shadow: 0 10px 20px rgba(255, 152, 0, 0.4);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    transform: translateZ(30px);
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px) scale(1.04);
+.btn-primary:hover, .send-btn:hover {
+    transform: translateZ(45px) scale(1.04);
     box-shadow: 0 15px 30px rgba(255, 152, 0, 0.6);
     color: #000;
 }
@@ -229,7 +224,7 @@ header {
     transform: translateY(-3px);
 }
 
-/* About Section Specific Styling */
+/* About Section */
 .about-text {
     font-size: 1.1rem;
     line-height: 1.6;
@@ -280,7 +275,7 @@ header {
     transform: translateY(-3px);
 }
 
-/* Menu Items & Accordions */
+/* Menu Section */
 .menu-item {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
@@ -341,7 +336,7 @@ header {
     box-shadow: 0 2px 10px rgba(255, 61, 0, 0.5);
 }
 
-/* Contact Inputs & Elements */
+/* Contact Form & 3D Layering */
 #contact-form {
     display: flex;
     flex-direction: column;
@@ -349,7 +344,8 @@ header {
     width: 100%;
 }
 
-form input, form textarea {
+#contact-form input, 
+#contact-form textarea {
     display: block;
     margin-bottom: 1.2rem;
     width: 100%;
@@ -361,19 +357,27 @@ form input, form textarea {
     color: #fff;
     box-sizing: border-box;
     backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
+    transform: translateZ(20px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-form input:focus, form textarea:focus {
+#contact-form input:focus, 
+#contact-form textarea:focus {
     outline: none;
     border-color: #ff9800;
     background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 0 15px rgba(255, 152, 0, 0.3);
+    transform: translateZ(35px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(255, 152, 0, 0.3);
 }
 
-form input::placeholder, form textarea::placeholder { color: #aaa; }
+#contact-form input::placeholder, 
+#contact-form textarea::placeholder { 
+    color: #aaa; 
+}
 
-.contact-info { margin-bottom: 1.8rem; }
+.contact-info { 
+    margin-bottom: 1.8rem; 
+}
 
 .contact-email {
     color: #ff9800;
@@ -387,14 +391,15 @@ form input::placeholder, form textarea::placeholder { color: #aaa; }
     background: rgba(255, 152, 0, 0.12);
     border: 1px solid rgba(255, 152, 0, 0.35);
     border-radius: 30px;
-    transition: all 0.3s ease;
     margin-bottom: 1.5rem;
+    transform: translateZ(25px);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-email:hover {
     background: rgba(255, 152, 0, 0.28);
     border-color: #ff9800;
-    transform: translateY(-2px);
+    transform: translateZ(35px) translateY(-2px);
     color: #fff;
     box-shadow: 0 5px 15px rgba(255, 152, 0, 0.25);
 }
@@ -405,6 +410,7 @@ form input::placeholder, form textarea::placeholder { color: #aaa; }
     gap: 1.2rem;
     margin-top: 1.8rem;
     width: 100%;
+    transform: translateZ(25px);
 }
 
 .social-links a {
@@ -419,15 +425,36 @@ form input::placeholder, form textarea::placeholder { color: #aaa; }
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-links a:hover {
     color: #ff9800;
     border-color: #ff9800;
     background: rgba(255, 152, 0, 0.25);
-    transform: translateY(-3px) scale(1.1);
+    transform: translateZ(20px) scale(1.18);
     box-shadow: 0 8px 20px rgba(255, 152, 0, 0.35);
+}
+
+/* Keyframe Animations */
+@keyframes floatGlow1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(80px, 50px) scale(1.25); }
+}
+
+@keyframes floatGlow2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-70px, -40px) scale(1.2); }
+}
+
+@keyframes floatHero {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-8px) rotateX(1.5deg); }
+}
+
+@keyframes floatContact3D {
+    0%, 100% { transform: translateY(0px) rotateX(2deg) rotateY(-2deg); }
+    50% { transform: translateY(-12px) rotateX(-2deg) rotateY(2deg); }
 }
 
 /* Mobile Responsiveness & Overflow Protection */
@@ -457,74 +484,71 @@ form input::placeholder, form textarea::placeholder { color: #aaa; }
         font-size: 1.1rem;
     }
 }
-
-/* 3D Perspective Container */
-#contact {
-    perspective: 1000px;
-}
-
-/* 3D Glass Card Container */
-.contact-card {
-    transform-style: preserve-3d;
-    animation: floatContact3D 6s ease-in-out infinite;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
-                0 0 30px rgba(255, 152, 0, 0.25);
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
-}
-
-/* Continuous 3D Floating Animation */
-@keyframes floatContact3D {
-    0%, 100% {
-        transform: translateY(0px) rotateX(2deg) rotateY(-2deg);
-    }
-    50% {
-        transform: translateY(-12px) rotateX(-2deg) rotateY(2deg);
-    }
-}
-
-/* 3D Layering Depth for Inner Elements */
-.contact-card h2 {
-    transform: translateZ(35px);
-}
-
-.contact-email {
-    transform: translateZ(25px);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-#contact-form input, 
-#contact-form textarea {
-    transform: translateZ(20px);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Interactive 3D Lift on Input Focus */
-#contact-form input:focus, 
-#contact-form textarea:focus {
-    transform: translateZ(35px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(255, 152, 0, 0.3);
-}
-
-/* 3D Push Button Animation */
-.send-btn {
-    transform: translateZ(30px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-.send-btn:hover {
-    transform: translateZ(45px) scale(1.04);
-    box-shadow: 0 15px 30px rgba(255, 152, 0, 0.5);
-}
-
-/* 3D Floating Social Bar */
-.social-links {
+/* Contact Email Accordion & Expandable Image */
+.contact-email-wrapper {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transform: translateZ(25px);
 }
 
-.social-links a {
-    transition: transform 0.3s ease, background 0.3s ease;
+.contact-email-btn {
+    color: #ff9800;
+    background: rgba(255, 152, 0, 0.12);
+    border: 1px solid rgba(255, 152, 0, 0.35);
+    border-radius: 30px;
+    padding: 0.6rem 1.4rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: inherit;
 }
 
-.social-links a:hover {
-    transform: translateZ(20px) scale(1.18);
+.contact-email-btn:hover {
+    background: rgba(255, 152, 0, 0.28);
+    border-color: #ff9800;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.25);
+    transform: translateY(-2px);
+}
+
+.contact-email-btn .toggle-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-email-wrapper.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Expandable Photo Container */
+.contact-image-container {
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 320px;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.3s ease;
+    border-radius: 16px;
+    margin-top: 0;
+}
+
+.contact-email-wrapper.active .contact-image-container {
+    max-height: 450px;
+    margin-top: 1rem;
+}
+
+.contact-image {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }

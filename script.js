@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     attachContactFormListener();
     setupSmoothScroll();
     setupScrollSpy();
+    setup3DTilt(); // <-- Add this line
+    setupEmailToggle();
 });
 
 async function loadMenu() {
@@ -188,5 +190,16 @@ function setup3DTilt() {
 
     card.addEventListener('mouseleave', () => {
         card.style.transform = `rotateX(0deg) rotateY(0deg) translateY(0px)`;
+    });
+}
+
+function setupEmailToggle() {
+    const wrapper = document.querySelector('.contact-email-wrapper');
+    const btn = document.getElementById('email-toggle-btn');
+    if (!btn || !wrapper) return;
+
+    btn.addEventListener('click', () => {
+        const isActive = wrapper.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive);
     });
 }
