@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     attachContactFormListener();
     setupSmoothScroll();
     setupScrollSpy();
-    setup3DTilt(); // <-- Add this line
+    setup3DTilt();
     setupEmailToggle();
 });
 
@@ -13,13 +13,14 @@ async function loadMenu() {
     const container = document.getElementById('menu-container');
     if (!container) return;
 
-    // Updated fallback menu matching server.js and menu.json
+    // Fallback menu with support for both images and videos
     const fallbackMenu = [
         { 
             "name": "Pumpkin Spice Latte", 
-            "price": 120.00, 
+            "price": 150.00, 
             "description": "Espresso with steamed milk, pumpkin spice syrup, and whipped cream.", 
-            "isNew": true 
+            "isNew": true,
+            "image": "pumpkin.jpg"
         },
         { 
             "name": "Latte", 
@@ -55,22 +56,30 @@ async function loadMenu() {
         console.warn('Using inline fallback menu data:', err);
     }
 
-    container.innerHTML = items.map((item) => `
-        <div class="menu-item ${item.isNew ? 'new-product-item' : ''}">
-            <div class="menu-item-header">
-                <h3>${item.name} - ₱${Number(item.price).toFixed(2)}</h3>
-                ${item.isNew ? '<span class="new-badge">NEW</span>' : ''}
+    container.innerHTML = items.map((item) => {
+        const mediaFile = item.image || item.video;
+        const isImage = mediaFile && /\.(jpg|jpeg|png|webp|gif)$/i.test(mediaFile);
+
+        return `
+            <div class="menu-item ${item.isNew ? 'new-product-item' : ''}">
+                <div class="menu-item-header">
+                    <h3>${item.name} - ₱${Number(item.price).toFixed(2)}</h3>
+                    ${item.isNew ? '<span class="new-badge">NEW</span>' : ''}
+                </div>
+                <p>${item.description}</p>
+                
+                ${mediaFile ? `
+                <div class="inline-video-container">
+                    ${isImage 
+                        ? `<img src="${mediaFile}" alt="${item.name}" class="inline-video" />`
+                        : `<video loop muted playsinline class="inline-video">
+                            <source src="${mediaFile}" type="video/mp4">
+                           </video>`
+                    }
+                </div>` : ''}
             </div>
-            <p>${item.description}</p>
-            
-            ${item.video ? `
-            <div class="inline-video-container">
-                <video loop muted playsinline class="inline-video">
-                    <source src="${item.video}" type="video/mp4">
-                </video>
-            </div>` : ''}
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
     const menuCards = container.querySelectorAll('.menu-item');
     menuCards.forEach(card => {
@@ -109,7 +118,7 @@ function loadAbout() {
 
     const data = {
         title: "About Our Cafe",
-        description: "Brew Haven is made for slow mornings, late-night study sessions, and kwentuhan that lasts for hours. We built this space for students, creatives, and anyone who just needs a place to pahing.",
+        description: "Brew Haven is made for slow mornings, late-night study sessions, and kwentuhan that lasts for hours. We built this space for students, creatives, and anyone who just needs a place to pahinga.",
         features: ["100% Organic", "Zero Plastic Packaging", "Fast Local Delivery"]
     };
 
@@ -175,7 +184,8 @@ function setupScrollSpy() {
 
     sections.forEach(section => observer.observe(section));
 }
-// Add to the end of script.js and call setup3DTilt() inside DOMContentLoaded
+
+// 3D Card Tilt Effect
 function setup3DTilt() {
     const card = document.querySelector('.contact-card');
     if (!card) return;
@@ -193,6 +203,7 @@ function setup3DTilt() {
     });
 }
 
+// Expandable Email Image Toggle
 function setupEmailToggle() {
     const wrapper = document.querySelector('.contact-email-wrapper');
     const btn = document.getElementById('email-toggle-btn');

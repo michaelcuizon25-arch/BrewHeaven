@@ -14,9 +14,10 @@ app.get('/api/menu', (req, res) => {
     res.json([
         { 
             name: "Pumpkin Spice Latte", 
-            price: 120.00, 
+            price: 150.00, 
             description: "Espresso with steamed milk, pumpkin spice syrup, and whipped cream.", 
-            isNew: true 
+            isNew: true,
+            video: "pumpkin.jpg"
         },
         { 
             name: "Latte", 
