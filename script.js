@@ -173,3 +173,20 @@ function setupScrollSpy() {
 
     sections.forEach(section => observer.observe(section));
 }
+// Add to the end of script.js and call setup3DTilt() inside DOMContentLoaded
+function setup3DTilt() {
+    const card = document.querySelector('.contact-card');
+    if (!card) return;
+
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        card.style.transform = `rotateX(${-y / 12}deg) rotateY(${x / 12}deg) translateY(-8px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = `rotateX(0deg) rotateY(0deg) translateY(0px)`;
+    });
+}
