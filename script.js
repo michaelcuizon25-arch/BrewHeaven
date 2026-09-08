@@ -11,28 +11,34 @@ async function loadMenu() {
     const container = document.getElementById('menu-container');
     if (!container) return;
 
-    // Static fallback data ensures menu always renders on GitHub Pages
+    // Updated fallback menu matching server.js and menu.json
     const fallbackMenu = [
-        {
-            "name": "Avocado Cold Brew",
-            "price": 150.00,
-            "description": "Rich cold brew topped with creamy avocado foam.",
-            "isNew": true,
-            "video": "avocado.mp4"
+        { 
+            "name": "Pumpkin Spice Latte", 
+            "price": 120.00, 
+            "description": "Espresso with steamed milk, pumpkin spice syrup, and whipped cream.", 
+            "isNew": true 
         },
-        {
-            "name": "Matcha Latte",
-            "price": 140.00,
-            "description": "Premium ceremonial grade matcha with steamed milk.",
-            "isNew": false,
-            "video": "matcha.mp4"
-        },
-        {
-            "name": "Classic Cafe Latte",
-            "price": 130.00,
-            "description": "Smooth espresso blended with silky milk.",
+        { 
+            "name": "Latte", 
+            "price": 90.00, 
+            "description": "Rich espresso combined with steamed milk and a thin layer of foam.", 
             "isNew": false,
             "video": "latte.mp4"
+        },
+        { 
+            "name": "Avocado Toast", 
+            "price": 129.00, 
+            "description": "Fresh sourdough topped with mashed avocado and poached eggs.", 
+            "isNew": false, 
+            "video": "avocado.mp4"
+        },
+        { 
+            "name": "Strawberry Matcha Latte", 
+            "price": 149.00, 
+            "description": "Ceremonial grade green tea layered over fresh strawberry puree.", 
+            "isNew": false,
+            "video": "matcha.mp4"
         }
     ];
 
@@ -55,11 +61,12 @@ async function loadMenu() {
             </div>
             <p>${item.description}</p>
             
+            ${item.video ? `
             <div class="inline-video-container">
                 <video loop muted playsinline class="inline-video">
                     <source src="${item.video}" type="video/mp4">
                 </video>
-            </div>
+            </div>` : ''}
         </div>
     `).join('');
 
@@ -93,15 +100,15 @@ async function loadMenu() {
     });
 }
 
-// Display static About details without backend API dependency
+// Display About section details
 function loadAbout() {
     const container = document.getElementById('about-container');
     if (!container) return;
 
     const data = {
-        title: "Welcome to Brew Heaven",
-        description: "Crafting perfection in every cup with artisanal roasted beans, fresh organic ingredients, and modern coffee innovation.",
-        features: ["Artisanal Brews", "Glassmorphic Ambiance", "Fresh Ingredients", "Handcrafted Drinks"]
+        title: "About Our Cafe",
+        description: "Brew Haven is made for slow mornings, late-night study sessions, and kwentuhan that lasts for hours. We built this space for students, creatives, and anyone who just needs a place to pahing.",
+        features: ["100% Organic", "Zero Plastic Packaging", "Fast Local Delivery"]
     };
 
     container.innerHTML = `
@@ -112,7 +119,7 @@ function loadAbout() {
     `;
 }
 
-// Handle contact form submission purely on client-side
+// Handle contact form submission locally
 function attachContactFormListener() {
     const form = document.getElementById('contact-form');
     if (!form) return;
@@ -122,13 +129,13 @@ function attachContactFormListener() {
         const responseEl = document.getElementById('contact-response');
 
         if (responseEl) {
-            responseEl.innerText = "Thank you for contacting Brew Heaven! Your message has been sent.";
+            responseEl.innerText = "Success! Your message was received.";
         }
         form.reset();
     });
 }
 
-// Intercept nav links and scroll smoothly to target section
+// Smooth scrolling navigation
 function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -145,7 +152,7 @@ function setupSmoothScroll() {
     });
 }
 
-// Highlight current section link in the navbar during scrolling
+// Highlight navbar links while scrolling
 function setupScrollSpy() {
     const sections = document.querySelectorAll('.page-section');
     const navLinks = document.querySelectorAll('.nav-links a');
