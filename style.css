@@ -85,11 +85,12 @@ header {
                 url('popular-bg.jpg') no-repeat center center / cover;
 }
 
+/* About Section Background */
 #about {
-    background: linear-gradient(to bottom, #0d0d10 0%, rgba(15, 15, 18, 0.75) 25%, rgba(15, 15, 18, 0.75) 75%, #0d0d10 100%), 
-                url('about.jpg') no-repeat center center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('about.jpg') no-repeat center center/cover;
+    width: 100%;
+    min-height: 100vh; /* Ensures full viewport height */
 }
-
 #contact {
     background: linear-gradient(to bottom, #0d0d10 0%, rgba(20, 16, 14, 0.85) 25%, rgba(20, 16, 14, 0.85) 75%, #0d0d10 100%);
 }
