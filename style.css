@@ -89,8 +89,9 @@ header {
 #about {
     background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('about.jpg') no-repeat center center/cover;
     width: 100%;
-    min-height: 100vh; /* Ensures full viewport height */
+    min-height: 100vh;
 }
+
 #contact {
     background: linear-gradient(to bottom, #0d0d10 0%, rgba(20, 16, 14, 0.85) 25%, rgba(20, 16, 14, 0.85) 75%, #0d0d10 100%);
 }
@@ -323,7 +324,7 @@ header {
     border-radius: 12px;
     display: block;
     object-fit: cover;
-    aspect-ratio: 5/ 4;
+    aspect-ratio: 5 / 4;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -387,6 +388,7 @@ form input::placeholder, form textarea::placeholder { color: #aaa; }
     border: 1px solid rgba(255, 152, 0, 0.35);
     border-radius: 30px;
     transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
 }
 
 .contact-email:hover {
@@ -401,7 +403,8 @@ form input::placeholder, form textarea::placeholder { color: #aaa; }
     display: flex;
     justify-content: center;
     gap: 1.2rem;
-    margin-top: 2rem;
+    margin-top: 1.8rem;
+    width: 100%;
 }
 
 .social-links a {
@@ -427,14 +430,30 @@ form input::placeholder, form textarea::placeholder { color: #aaa; }
     box-shadow: 0 8px 20px rgba(255, 152, 0, 0.35);
 }
 
-/* Mobile Responsiveness */
+/* Mobile Responsiveness & Overflow Protection */
 @media (max-width: 600px) {
+    .page-section {
+        padding: 4.5rem 1rem 3rem 1rem;
+        min-height: auto;
+    }
+
     .glass-card {
-        padding: 2.5rem 1.5rem;
-        width: 92%;
+        padding: 2rem 1.2rem;
+        width: 95%;
     }
     
     .glass-card h2 {
         font-size: 1.8rem;
+    }
+
+    #contact {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
     }
 }
