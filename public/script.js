@@ -7,13 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setupScrollSpy();
 });
 
-// Fetch and display menu items with New Product badges
 async function loadMenu() {
     const container = document.getElementById('menu-container');
     if (!container) return;
 
     try {
-        const response = await fetch('/api/menu');
+        const response = await fetch('menu.json'); // Changed from /api/menu
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const items = await response.json();
 
@@ -25,7 +24,6 @@ async function loadMenu() {
                 </div>
                 <p>${item.description}</p>
                 
-                <!-- Inline Video Player -->
                 <div class="inline-video-container">
                     <video loop muted playsinline class="inline-video">
                         <source src="${item.video}" type="video/mp4">
@@ -34,19 +32,16 @@ async function loadMenu() {
             </div>
         `).join('');
 
-        // Attach click listeners to expand video under the clicked card
         const menuCards = container.querySelectorAll('.menu-item');
         menuCards.forEach(card => {
             const videoContainer = card.querySelector('.inline-video-container');
             if (videoContainer) {
-                // Prevent clicking video controls/container from toggling the card state
                 videoContainer.addEventListener('click', (e) => e.stopPropagation());
             }
 
             card.addEventListener('click', () => {
                 const isAlreadyActive = card.classList.contains('active');
 
-                // Close all other active videos
                 menuCards.forEach(c => {
                     c.classList.remove('active');
                     const vid = c.querySelector('video');
@@ -56,14 +51,11 @@ async function loadMenu() {
                     }
                 });
 
-                // Toggle selected video open and play
                 if (!isAlreadyActive) {
                     card.classList.add('active');
                     const activeVid = card.querySelector('video');
                     if (activeVid) {
-                        activeVid.play().catch(err => {
-                            console.warn('Playback interrupted:', err);
-                        });
+                        activeVid.play().catch(err => console.warn('Playback interrupted:', err));
                     }
                 }
             });
@@ -71,10 +63,9 @@ async function loadMenu() {
 
     } catch (err) {
         console.error('Error loading menu:', err);
-        container.innerHTML = '<p>Error loading menu from backend API.</p>';
+        container.innerHTML = '<p>Error loading menu.</p>';
     }
 }
-
 // Fetch and display about details
 async function loadAbout() {
     const container = document.getElementById('about-container');
